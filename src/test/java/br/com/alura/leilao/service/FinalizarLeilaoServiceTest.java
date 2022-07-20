@@ -47,8 +47,7 @@ class FinalizarLeilaoServiceTest {
 		Assert.assertEquals(new BigDecimal("900"), 
 				leilao.getLanceVencedor().getValor());
 		
-//		Mockito.verify(leilaoDao).salvar(leilao);
-		throw new Exception("falhando teste");
+		Mockito.verify(leilaoDao).salvar(leilao);
 	}
 
 	@Test
