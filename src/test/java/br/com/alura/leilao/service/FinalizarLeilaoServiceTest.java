@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.internal.runners.statements.Fail;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -33,7 +34,7 @@ class FinalizarLeilaoServiceTest {
 	}
 
 	@Test
-	void deveriaFinalizarUmLeilao() {
+	void deveriaFinalizarUmLeilao() throws Exception {
 		List<Leilao> leiloes = leiloes();
 		
 		Mockito.when(leilaoDao.buscarLeiloesExpirados())
@@ -46,7 +47,8 @@ class FinalizarLeilaoServiceTest {
 		Assert.assertEquals(new BigDecimal("900"), 
 				leilao.getLanceVencedor().getValor());
 		
-		Mockito.verify(leilaoDao).salvar(leilao);
+//		Mockito.verify(leilaoDao).salvar(leilao);
+		throw new Exception("falhando teste");
 	}
 
 	@Test
